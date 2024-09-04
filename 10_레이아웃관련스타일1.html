@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃 관련 스타일 1</title>
+    <style>
+
+        .size-test{
+            border : 10px solid red;
+
+        }
+
+        #test1{
+            width: 400px;
+            height: 200px;
+        }
+        
+        #test2{
+            width: 50%;
+            height: 200px;
+        }
+
+        /*display*/
+        .display-test{
+            border : 1px solid black;
+            width: 150px;
+            height: 150px;
+            /* width, height 속성은 블럭요소에만 적용가능*/
+        }
+
+        .red{
+            background-color: red;
+        }
+        .yellow{
+            background-color: yellow;
+        }
+
+        .pink{
+            background-color: pink;
+        }
+
+        .green{
+            background-color: green;
+        }
+        .purple{
+            background-color :purple;
+        }
+        .inline{
+            display  : inline;
+        }
+        .inline-block{
+            display: inline-block;
+        }
+        .block{
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <!--
+        블럭 요소 : 한줄 단위로 영역이 잡힘
+                     줄바꿈 발생 (div, p, pre, h, ...)
+        인라인 요소 : content 부분만 영역이 잡힘
+                      옆으로 배치됨 (span, label, input, image, ...)    
+    -->
+    
+    <h1>레이아웃 관련 스타일</h1>
+
+    <h3>width, height</h3>
+    
+    <p>
+        content 영역의 크기를 조절하는 속성 <br>
+        (정확하게 텍스트 내용을 차지하는 부분만 크기 조절)
+    </p>
+
+    <h4>고정크기 (px)</h4>
+    <div id="test1" class="size-test"></div>
+
+    <br>
+
+    <hr>
+
+    <h4>
+        가변크기 (%)
+    </h4>
+    <div id="test2" class="size-test"></div>
+
+    <!--
+        참고)
+        width, height 를 테두리를 포함한 사이즈로 지정하고 싶다면?
+        해당 요소에
+        box-sizing : border-box; 속성 추가!!
+    -->
+
+    <br>
+    <hr>
+    <h3>display : 화면 배치 방법 변경</h3>
+    <p>
+        블럭요소와 인라인요소의 속성을
+        변경해서 배치 방식을 변경
+    </p>
+
+    <pre>
+        [ 표현법 ]
+
+        선택자 {
+            display : inline/inline-block/block;
+
+        }
+        <!--
+            기존 블럭요소인 div를  인라인요소로 바꾸기
+        -->
+
+        </pre>
+        <h4>display : inline</h4>
+
+
+        <!-- 인라인요소로 바꾸기 전 -->
+         <!--div.display-test{n번째 영역}*5 + Enter-->
+         <div class="display-test red">첫번째 영역</div>
+         <div class="display-test yellow">두번째 영역</div>
+         <div class="display-test pink">세번째 영역</div>
+         <div class="display-test green">네번째 영역</div>
+         <div class="display-test purple">다섯번째 영역</div>
+        <br>
+
+        <!-- 인라인요소로 바꾼 후-->
+        <div class="display-test red inline">첫번째 영역</div>
+         <div class="display-test yellow inline">두번째 영역</div>
+         <div class="display-test pink inline">세번째 영역</div>
+         <div class="display-test green inline">네번째 영역</div>
+         <div class="display-test purple inline">다섯번째 영역</div>
+
+        <br>
+        <b>
+            display : inline 만 하게 되면
+            width 와 height 속성이 적용되지 않음!!
+        </b>
+
+        <br><br>
+        <!--
+            인라인요소처럼 옆으로 배치를 하나,
+            width 와 height 의 크기도 유지되었으면 좋겠는 경우?
+        -->
+
+        <h4>
+            display : inline-block
+        </h4>
+
+        <div class="display-test red inline-block">첫번째 영역</div>
+         <div class="display-test yellow inline-block">두번째 영역</div>
+         <div class="display-test pink inline-block">세번째 영역</div>
+         <div class="display-test green inline-block">네번째 영역</div>
+         <div class="display-test purple inline-block">다섯번째 영역</div>
+            <br><br>
+
+         <!-- 참고) 인라인 요소의 경우
+         공백이나 줄바꿈이 태그 사이에 생길 시 약간의 틈이 생김
+         
+         해결방법 )-->
+         <div class="display-test red inline-block">첫번째 영역</div
+            ><div class="display-test yellow inline-block">두번째 영역</div
+                ><div class="display-test pink inline-block">세번째 영역</div
+                    ><div class="display-test green inline-block">네번째 영역</div
+                        ><div class="display-test purple inline-block">다섯번째 영역</div>
+       <br><br>
+       <!-- 기존 인라인요소인 span 을 블럭요소로 바꾸기 -->
+        <h4>display : block</h4>
+
+        <!-- 블럭요소로 바꾸기 전-->
+         <span class="display-test red block">첫번째 영역</span>
+         <span class="display-test yellow block">두번째 영역</span>
+         <span class="display-test pink block">세번째 영역</span>
+         <span class="display-test green block">네번째 영역</span>
+         <span class="display-test purple block">다섯번째 영역</span>
+         <br><br>
+
+
+
+</body>
+</html>

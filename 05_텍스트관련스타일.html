@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>텍스트 관련 스타일</title>
+    <style>
+
+        /*color*/
+        #c{
+            color :red; /* 색상명 */
+            color :  #FFA7A7; /* 16진수 */
+            color : rgb(0,255,13); /* rgb(r,g,b) : 0~255 사이로 조합*/
+            color : rgba(0, 255, 13, 0.445);
+             /* rgba(r,g,b,투명도) : 투명도는 숫자가 작아질수록 투명 (0~1) */
+             color:  hsl(200, 50%, 50%);
+             /* hsl(h,s,l) : h는 색상 값 (0~360), s 는 채도 (%), l 은 명도 (%)*/
+            color : hsla(200,50%,50%,0.3)
+            /* a 는 마찬가지로 투명도 */
+        }
+
+        /* text- decoration */
+        #td1{
+            text-decoration: underline;
+        }
+        #td2{
+            text-decoration: line-through;
+        }
+        #td3{
+            text-decoration: overline;
+        }
+
+        /* text-transform */
+        #tt1{
+            text-transform: uppercase;
+        }
+        #tt2{
+            text-transform: lowercase;
+        }
+        #tt3{
+            text-transform: capitalize;
+        }
+
+        /* text-shadow */
+        .shadow{
+            font-size : 50px;
+            font-weight: 900;
+        }
+
+        #ts1{
+            color: orangered;
+            text-shadow: 5px 5px 5px yellow; 
+        }
+
+        #ts2{
+            color: white;
+            text-shadow: 0px 0px 10px black;
+        }
+
+        #ts3{
+            text-shadow: 0px 0px 4px gray,
+                         0px -5px 4px yellow,
+                         0px -10px 8px orange,
+                         0px -15px 14px orangered,
+                         0px -22px 19px red;
+                         /* 그림자를 겹겹으로 나열해서 줄 수 있다.*/
+        }
+
+    </style>
+</head>
+<body>
+    
+    <h1>텍스트 관련 스타일 (text-~)</h1>
+    <h3>
+        color : 텍스트 색상을 지정
+    </h3>
+    <pre id="c">
+        [ 표현법 ]
+
+        선택자 {
+            color 색상명/16진수/rgb(x,x,x)/rgba(x,x,x,x)/hsl(x,x,x)/hsla(x,x,x,x)
+        }
+
+    </pre>
+
+    <br>
+    <hr>
+
+    <h3>
+        text-decoration
+        : 텍스트에 줄을 긋거나 줄을 없앨 때 사용
+    </h3>
+
+    <pre>
+        [ 표현법 ]
+
+        선택자 {
+            text-decoration : none/underline/overline/line-through;
+        }
+
+        - none : 선을 없애겠다.
+        - underline : 밑줄 긋기
+        - overline : 윗줄 긋기
+        - line-through : 관통하는 선 긋기 (취소선)
+    </pre>
+
+    <!-- ul>li#td$*3 + Enter-->
+    <ul>
+        <li id="td1">
+            underline : 텍스트 영역 아래에 줄 긋기
+        </li>
+        <li id="td2">
+            underline : 텍스트 영역 중간에 줄 긋기
+        </li>
+        <li id="td3">
+            overline : 텍스트 영역 위에 줄 긋기
+        </li>
+    </ul>
+
+    <!-- text-decoration -->
+
+    <a href="http://www.naver.com" style="text-decoration: none; color: gray;">
+        네이버로</a>
+
+        <br>
+        <hr>
+
+        <h3>
+            text-ransform
+            : 영문 텍스트의 대소문자 변환 시 사용
+        </h3>
+
+        <pre>
+            [ 표현법 ]
+
+            선택자 {
+                text-transform : uppercase/lowercase/capitalize;
+            }
+        </pre>
+
+        <!-- ul>li#tt$*3 + Enter-->
+        <ul>
+            <li id="tt1">
+                uppercase : 모든 영문자 다 대문자로
+            </li>
+            <li id="tt2">
+                lowercase : 모든 영문자 다 소문자로
+            </li>
+            <li id="tt3">
+                capitalize : 영문자의 first text 만 대문자로
+            </li>
+        </ul>
+        <br>
+        <hr>
+
+        <h3>
+            text-align : 텍스트를 정렬할 때 사용
+        </h3>
+
+        <pre>
+            [ 표현법 ]
+
+            선택자 {
+                text-align : left/justfy/right/center;
+            }
+        </pre>
+
+        <h4>양쪽정렬</h4>
+        <p style="text-align: justify;">
+
+            대한민국은 통일을 지향하며, 자유민주적 기본질서에 입각한 평화적 통일 정책을 수립하고 이를 추진한다. 대통령이 임시회의 집회를 요구할 때에는 기간과 집회요구의 이유를 명시하여야 한다.
+
+    환경권의 내용과 행사에 관하여는 법률로 정한다. 모든 국민은 신체의 자유를 가진다. 누구든지 법률에 의하지 아니하고는 체포·구속·압수·수색 또는 심문을 받지 아니하며, 법률과 적법한 절차에 의하지 아니하고는 처벌·보안처분 또는 강제노역을 받지 아니한다.
+        </p>
+        <h4>오른쪽정렬</h4>
+        <p style="text-align: right;">
+            대한민국은 통일을 지향하며, 자유민주적 기본질서에 입각한 평화적 통일 정책을 수립하고 이를 추진한다. 대통령이 임시회의 집회를 요구할 때에는 기간과 집회요구의 이유를 명시하여야 한다.
+
+환경권의 내용과 행사에 관하여는 법률로 정한다. 모든 국민은 신체의 자유를 가진다. 누구든지 법률에 의하지 아니하고는 체포·구속·압수·수색 또는 심문을 받지 아니하며, 법률과 적법한 절차에 의하지 아니하고는 처벌·보안처분 또는 강제노역을 받지 아니한다.
+        </p>
+
+        <h4>가운데 정렬</h4>
+        <p style="text-align: center;">
+            대한민국은 통일을 지향하며, 자유민주적 기본질서에 입각한 평화적 통일 정책을 수립하고 이를 추진한다. 대통령이 임시회의 집회를 요구할 때에는 기간과 집회요구의 이유를 명시하여야 한다.
+
+            환경권의 내용과 행사에 관하여는 법률로 정한다. 모든 국민은 신체의 자유를 가진다. 누구든지 법률에 의하지 아니하고는 체포·구속·압수·수색 또는 심문을 받지 아니하며, 법률과 적법한 절차에 의하지 아니하고는 처벌·보안처분 또는 강제노역을 받지 아니한다.
+        </p>
+
+         <br>
+
+         <hr>
+
+         <h3>
+            text-shadow : 텍스트에 그림자 효과를 줄 때 사용
+         </h3>
+
+         <pre>
+            [ 표현법 ]
+
+            선택자 {
+                text-shadow : 가로거리 세로거리 번짐정도 색상;
+            }
+
+            - 번짐정도와 색상은 생략 가능
+            - 가로거리와 세로거리가 양수일 경우
+              오른쪽 아래에 그림자 생성
+            - 가로거리와 세로거리가 음수일 경우
+              왼쪽 위에 그림자 생성
+            - 번짐정도를 생략 시 0px 이 기본값
+              (0에 가까울수록 그림자가 진해짐)
+            - 색상을 생략 시 글자색과 같다.
+         </pre>
+
+         <!--div>span#ts$.shadow{HTML}*3 + Entel-->
+         <div>
+            <span id="ts1" class="shadow">HTML</span> <br><br><br>
+            <span id="ts2" class="shadow">HTML</span> <br><br><br>
+            <span id="ts3" class="shadow">HTML</span> <br><br><br>
+         </div>
+
+
+</body>
+</html>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

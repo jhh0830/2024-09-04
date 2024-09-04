@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃 관련 스타일 2</title>
+    <style>
+        /*부모요소가 항상 기준점!!*/
+        .outer{
+            border:  1px solid blue;
+             /*작업용 가이드 라인*/
+
+             position : relative; 
+             /*
+                기준이 되는 부모요소에 position
+                :relative로 기준점을 잡아줘서 그안에 들어있는 자식요소들에 대해
+                절대적인 배치가 가능하게 한다.
+             */
+             /* 
+                기준점은 항상 부모요소에 정확하게 잡아주기 
+                만약 기준점을 바로 부모요소에 지정하지 않으면
+                기준점이 자동으로 body 태그로 잡힘
+             */
+        }
+       
+
+        /* 자식요소를 옮겨서 쌓아보기 */
+        .positioning{
+            border : 1px solid black;
+        }
+        #first{
+            width: 300px;
+            height: 300px;
+            background-color: yellow;
+        }
+        #second{
+            width: 200px;
+            height: 200px;
+            background-color: yellowgreen;
+            position : absolute;
+            top : 50px;
+            left : 50px;
+        }
+        #third{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            /*
+                이동할 자식요소를
+                부모 요소 기준으로 절대적인 위치로
+                옮길 수 있게끔 position : absolute 를 걸어 준 후
+                각각 부모요소 (기준점) 으로 부터
+                어디로부터 얼만큼 떨어진 위치로 옮겨줄거냐를 지정!!
+                top : 50px
+                => 기준점으로부터 위에서 50px 떨어진 위치로 옮겨졌다.
+            */
+        
+        }
+        /* 고정위치 */
+        .fixed-area{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            /*position: fixed;*/
+        }
+
+        /* z-index*/
+        .z-test{
+            width: 150px;
+            height: 100px;
+            border:  1px solid black;
+            position: absolute;
+            /*
+            top : 0px;
+            left : 0px;
+            */
+        }
+
+        #z1 {
+            background-color: yellow;
+            top : 100px;
+            left : 100px;
+            z-index: 4;
+        }
+        #z2{
+            background-color: green;
+            top : 50px;
+            left : 50px;
+            z-index: 2222;
+        }
+        #z3{
+            background-color: red;
+            z-index: 999999999;
+            /*
+                z-index 의 숫자가 가장 큰 경우
+                다른 요소들보다 더 위쪽에 쌓여있겠다 라는 뜻
+                값은 몇이 되든 상관 없음!!
+                단순히 값의 크기만 더 위쪽에 쌓일것인가
+                아래쪽에 쌓일것인가를 판단함
+            */
+        }
+
+        /* visibility */
+        .vis-test{
+            width: 100px;
+            height: 100px;
+        }
+        #vis{
+            /*visibility: hidden;*/
+            /*
+                요소가 안보여지게끔 숨김 처리
+                단, 공간을 차지함!!
+                그래서 아래의 방버블 더 많이 씀
+            */
+            display: none;
+
+            /*
+                요소가 안보여지게끔 숨김 처리
+                또한, 공간도 차지하지 않음!!
+            */
+        }
+        /* float */
+        .float-test{
+            border : 1px solid black;
+            width: 70px;
+            height: 30px;
+            float: right;
+            /*오른쪽에서부터 차례대로 나열*/
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>배치 관련 스타일</h1>
+
+    <h3>
+        position : 절대위치와 상대 위치
+    </h3>
+
+    <div class="outer">
+        <div id="first" class="positioning">첫번째 자식</div>
+        <div id="second" class="positioning">두번째 자식</div>
+        <div id="third" class="positioning">세번째 자식</div>
+
+    </div>
+    <br>
+
+
+    <h3>고정위치</h3>
+
+    <div class="positioning fixed-area">
+
+    </div>
+    <br>
+    <hr>
+
+    <h3>z-index</h3>
+
+    <p>
+        페이지 안의 요소들을
+        순서대로 위로 쌓는 속성
+    </p>
+
+    <div class="outer"> <!-- postion : relative -->
+        <div id="z1" class="z-test">요소1</div>
+        <div id="z2" class="z-test">요소2</div>
+        <div id="z3" class="z-test">요소3</div>
+    </div>
+    
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    
+    <h3> visibility</h3>
+
+    <p>
+        페이지에 특정 요소를 보이거나
+        보이지 않게 숨겨주는 속성
+
+
+    </p>
+
+    <div class="vis-test" style="background-color: red;"></div>
+    <div id="vis" class="vis-test" style="background-color: green;"></div>
+    <div class="vis-test" style="background-color: yellow;"></div>
+
+    <p>
+        visibility : hidden 은
+        숨김 처리는 되지만 공간을 차지함!! <br>
+        display : none 은
+        공간마저도 차지하지 않음!! (더 많이 쓰임)
+    </p>
+
+    <br>
+
+    <hr>
+
+    <h3>float</h3>
+
+    <p>
+        페이지 내의 요소들은
+        화면으로부터 붕 띄워서
+        왼쪽 또는 오른쪽으로 배치하는 속성
+    </p>
+    <!-- div.float-test{요소$}*5 + Enter -->
+    <div class="float-test">요소1</div>
+    <div class="float-test">요소2</div>
+    <div class="float-test">요소3</div>
+    <div class="float-test">요소4</div>
+    <div class="float-test">요소5</div>
+
+    <!--
+        float 속성을 쓰게되면
+        그 이후에 적힌 요소들이
+        중첩해서 계속 출력되기 때문에
+        속성을 해제해줘야 한다!!
+    -->
+    <br clear="both">
+    <!-- float 속성을 해제할 때 쓴다.-->
+    <hr>
+
+    
+
+
+</body>
+</html>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
